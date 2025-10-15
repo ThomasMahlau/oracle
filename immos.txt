@@ -1,0 +1,91 @@
+SELECT a.abt_id || '.' ||
+    CASE 
+        WHEN s.sg_id < 10 THEN '0'||TO_CHAR(s.sg_id)
+        ELSE TO_CHAR(s.sg_id)
+        END AS Kennung
+        , a.abteilung || ' | ' || s.sachgebiet AS Kombi
+FROM i_abteilung a
+JOIN i_sachgebiet s
+ON (a.abt_id = s.abt_id);
+
+
+CREATE TABLE i_immo(immo_id NUMBER(4) NOT NULL,
+    immo VARCHAR2(20));
+
+INSERT INTO i_immo(immo_id, immo)
+    VALUES(1,'Immo1');
+INSERT INTO i_immo(immo_id, immo)
+    VALUES(2,'Immo2');
+INSERT INTO i_immo(immo_id, immo)
+    VALUES(3,'Immo3');
+INSERT INTO i_immo(immo_id, immo)
+    VALUES(4,'Immo4');
+INSERT INTO i_immo(immo_id, immo)
+    VALUES(5,'Immo5');
+INSERT INTO i_immo(immo_id, immo)
+    VALUES(6,'Immo6');
+    
+SELECT * FROM i_immo;
+
+UPDATE i_immo SET immo ='Immo1';
+
+UPDATE i_immo SET immo ='Immo'||immo_id;
+
+CREATE TABLE i_anlagen (
+    anlage_id NUMBER(4) NOT NULL,
+    immo_id NUMBER(4),
+    anlage VARCHAR2(20)
+);
+
+INSERT INTO i_anlagen(anlage_id,immo_id, anlage)
+    VALUES(1,1,'Anlage');
+INSERT INTO i_anlagen(anlage_id,immo_id, anlage)
+    VALUES(2,1,'Anlage');
+INSERT INTO i_anlagen(anlage_id,immo_id, anlage)
+    VALUES(3,1,'Anlage');
+INSERT INTO i_anlagen(anlage_id,immo_id, anlage)
+    VALUES(4,1,'Anlage');
+    
+SELECT * FROM i_anlagen;
+
+INSERT INTO i_anlagen(anlage_id,immo_id, anlage)
+    VALUES(5,2,'Anlage');
+INSERT INTO i_anlagen(anlage_id,immo_id, anlage)
+    VALUES(6,2,'Anlage');
+
+UPDATE i_anlagen SET anlage = 'anlage'||anlage_id;
+
+CREATE TABLE i_teile(
+    teile_id NUMBER(4) NOT NULL,
+    anlage_id NUMBER(4),
+    teil VARCHAR2(20)
+);
+
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(1, 1, 'Teil');
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(2, 1, 'Teil');
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(3, 1, 'Teil');
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(4, 1, 'Teil');
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(5, 1, 'Teil');
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(6, 1, 'Teil');
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(7, 1, 'Teil');
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(8, 1, 'Teil');
+INSERT INTO i_teile(teile_id, anlage_id, teil)
+    VALUES(9, 1, 'Teil');
+
+SELECT * FROM i_teile;    
+
+UPDATE i_teile SET teil = 'Teil'||teile_id;
+
+-- Wie viele Teile hat welche Anlage (Anlage, Anz Teile)
+
+-- Immo mit allen Anlagen ausgeben & Anzahl der Teile pro Anlage
+
+-- Liste mit allen Immos und allen Anlagen (in der gleichen Zeilen)
