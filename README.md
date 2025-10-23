@@ -1,7 +1,7 @@
-# baby
+# Post_Kurs-Uploads
+Hallo,
+habe das Skript Oracle_GL_PIWI.pdf und alle o.g. *.sql-Dateien hochgeladen.
 
-Die Datei baby_names enthält statistische Daten zur Häufigkeit der Vergabe von Vornamen in unterschiedlichen Jahren
+## Viel Spaß weiterhin mit Oracle.
 
-# books
-
-Alle anderen Dateien enthalten die aufgeteilten Daten eines Bookstores mit unterschiedlichen Standorten.
+VG Thomas Mahlau
